@@ -19,10 +19,10 @@ requirements:
     - {{ stdlib("c") }}
     - cmake
     - make
-    - nanobind
   host:
     - python
     - scikit-build-core
+    - nanobind
     - pip
   run:
     - python
