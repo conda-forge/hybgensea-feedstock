@@ -36,7 +36,7 @@ test:
     - pip
 
 about:
-  home: https://github.com/mdealencar/PyHygese
+  home: https://github.com/mdealencar/HybGenSea
   summary: Wrapper for the Hybrid Genetic Search algorithm for Capacitated Vehicle Routing Problems (HGS-CVRP)
   license: MIT
   license_file: LICENSE
