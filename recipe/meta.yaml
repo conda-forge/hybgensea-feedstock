@@ -1,5 +1,5 @@
 {% set name = "hybgensea" %}
-{% set version = "0.1.1" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/hybgensea-{{ version }}.tar.gz
-  sha256: 6cd07ef3f8eccbbcf7b0dad5385622d448a33c27377da308f2b1a338951b048a
+  sha256: 757705144474ef4811722ba08213143bb3ccb42ee4887d24279a56c4c5f9c25a
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   build:
