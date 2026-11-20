@@ -1,29 +1,20 @@
 context:
   name: hybgensea
-  version: "0.3.0"
+  version: "0.3.1"
 
 package:
   name: ${{ name|lower }}
   version: ${{ version }}
 
 source:
-  - url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/hybgensea-${{ version }}.tar.gz
-    sha256: 7e114d5890e42967078e936c45869fd9dd9d4d0dcf52c012b3258680537d2b85
-  - url: https://github.com/mdealencar/HGS-CVRP/archive/f60dd6108fcaf9e4516ecb288edaf41bdf6bd809.tar.gz
-    sha256: 0aff5a49b6281d71292b243238c5b80bbe82934566f41ccc3b262413e1225f5c
-    target_directory: HGS-CVRP
+  url: https://files.pythonhosted.org/packages/source/${{ name[0] }}/${{ name }}/hybgensea-${{ version }}.tar.gz
+  sha256: f6f416415718c1e854515411aaed604d0fd3ddba4acafbc8a03f02e4e9365aad
 
 build:
-  number: 1
+  number: 0
   skip:
     - match(python, "<3.10")
-  script:
-    - if: unix
-      then:
-        - python -m pip install . -vv --no-deps --no-build-isolation -C cmake.define.FETCHCONTENT_SOURCE_DIR_HGSCVRP="${SRC_DIR}/HGS-CVRP"
-    - if: win
-      then:
-        - python -m pip install . -vv --no-deps --no-build-isolation -C cmake.define.FETCHCONTENT_SOURCE_DIR_HGSCVRP="%SRC_DIR%\HGS-CVRP"
+  script: python -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
@@ -34,8 +25,9 @@ requirements:
       then: make
   host:
     - python
-    - scikit-build-core
-    - nanobind
+    - scikit-build-core >=1.0
+    - nanobind >=2.2
+    - setuptools-scm >=8
     - pip
   run:
     - python
